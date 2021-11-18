@@ -92,3 +92,79 @@ public class CirclePanel extends JPanel {
 		repaint();
 	}
 }
+
+//class Round
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Round extends JFrame{
+
+	private JButton makeBigger = new JButton("Bigger");
+	private JButton makeSmaller = new JButton("Smaller");
+	private CirclePanel canvas = new CirclePanel();
+	
+	public Round() {
+		
+		JPanel panel = new JPanel();
+		panel.add(makeBigger);
+		panel.add(makeSmaller);
+		
+		add(panel, BorderLayout.SOUTH);
+		add(canvas, BorderLayout.CENTER);
+		
+		makeBigger.addActionListener(new MakeBiggerListener());
+		
+		/**
+		// create listeners
+		YesListenerClass yes = new YesListenerClass();
+		sayYesButton.addActionListener(yes);
+		
+		DependsListenerClass depends = new DependsListenerClass();
+		dependsButton.addActionListener(depends);
+		
+		wrongButton.addActionListener(depends);
+		*/
+	}
+	
+	public static void main(String[] args) {
+		JFrame frame = new Round();
+		frame.setTitle("Circles");
+		frame.setLocationRelativeTo(null);
+		frame.setSize(200,200);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		
+		
+	}
+	
+	class MakeBiggerListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			canvas.makeBigger();
+		}
+		
+	}
+}
+
+//class YesListener
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+
+public class YesListenerClass implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		System.out.println("Say yes to CS");
+		
+	}
+	
+}
